@@ -11,7 +11,8 @@ const string PROMPT = "\n=====MENU====\n"
                       "d.Tim so am lon nhat, so duong be nhat\n"
                       "e.Xoa phan tu tai vij tri bat ki (nguoi dung chon)\n"
                       "f.Nhap vao n. Gan gia tri cac phan tu theo chuoi Fibonacci\n"
-                      "x.De thoat\n";
+                      "x.De thoat\n"
+                      "Lua chon >";
 int main()
 {
     char lua_chon;
