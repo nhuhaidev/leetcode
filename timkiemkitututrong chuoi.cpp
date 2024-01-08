@@ -3,8 +3,7 @@
 using namespace std;
 char arr[] = {"a2def"};
 int sizearr = strlen(arr);
-int slktchu = 0,
-    slktso = 0;
+int slktchu = 0, slktso = 0;
 void ktnum(char num)
 {
     if (num >= '0' && num <= '9')
