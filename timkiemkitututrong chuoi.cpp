@@ -7,7 +7,6 @@ int slktchu = 0,
     slktso = 0;
 void ktnum(char num)
 {
-
     if (num >= '0' && num <= '9')
         slktso++;
 }
@@ -15,11 +14,8 @@ void ktword(char word)
 {
 
     if (word >= 'a' && word <= 'z' || word >= 'A' && word <= 'Z')
-    {
         slktchu++;
-    }
 }
-
 int main()
 {
 
