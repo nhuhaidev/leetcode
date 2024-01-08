@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-char arr[] = {"a2def"};
+char arr[] = {"a2daasd2ef"};
 int sizearr = strlen(arr);
 int slktchu = 0, slktso = 0;
 void ktnum(char num)
