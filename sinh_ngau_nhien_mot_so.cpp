@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-#include <math.h>
+#include <cmath>
 using namespace std;
 bool songuyento(int num)
 {
