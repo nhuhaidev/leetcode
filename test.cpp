@@ -7,15 +7,12 @@ void TaoMang(int a[], int n)
 {
     srand(time(0));
     for (int i = 0; i < n; i++)
-
         a[i] = 20 + rand() % 61;
 }
 void InMang(int a[], int n)
 {
     for (int i = 0; i < n; i++)
-    {
         cout << a[i] << " ";
-    }
 }
 void Timmaxmin(int a[], int n)
 {
@@ -24,11 +21,11 @@ void Timmaxmin(int a[], int n)
     {
         if (a[i] % 2 == 0)
         {
+            if (a[i] < minarr)
+                minarr = a[i];
             if (a[i] >= maxchan)
                 maxchan = a[i];
         }
-        if (a[i] < minarr)
-            minarr = a[i];
     }
 }
 void XapXep(int a[], int n)
