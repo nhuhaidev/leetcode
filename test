@@ -35,9 +35,14 @@
             const name = document.getElementById('name').value;
             const birthYear = document.getElementById('birthYear').value;
             const currentYear = new Date().getFullYear();
-            const age = currentYear - birthYear;
-
             const resultDiv = document.getElementById('result');
+            
+            if (!birthYear || isNaN(birthYear) || birthYear > currentYear || birthYear < 1900) {
+                resultDiv.innerHTML = `Vui lòng nhập năm sinh hợp lệ!`;
+                return;
+            }
+
+            const age = currentYear - birthYear;
             resultDiv.innerHTML = `Chào bạn ${name}! Tuổi của bạn là ${age}`;
         }
     </script>
