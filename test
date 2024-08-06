@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            border: 1px solid #000;
-            padding: 20px;
-            width: 300px;
-        }
-        .result {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>CHƯƠNG TRÌNH TÍNH TUỔI</h2>
-        <label for="name">Nhập vào tên bạn:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="birthYear">Nhập vào năm sinh:</label>
-        <input type="text" id="birthYear" name="birthYear"><br><br>
-        <button onclick="calculateAge()">Tính tuổi</button>
-        <div class="result" id="result"></div>
-    </div>
-
+    <title>Chương Trình Giải Phương Trình Bậc 2</title>
     <script>
-        function calculateAge() {
-            const name = document.getElementById('name').value;
-            const birthYear = document.getElementById('birthYear').value;
-            const currentYear = new Date().getFullYear();
-            const resultDiv = document.getElementById('result');
-            
-            if (!birthYear || isNaN(birthYear) || birthYear > currentYear || birthYear < 1900) {
-                resultDiv.innerHTML = `Vui lòng nhập năm sinh hợp lệ!`;
-                return;
+        function giaiPTBac2() {
+            // Lấy giá trị của a, b, c từ input
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+
+            // Tính delta
+            let delta = b * b - 4 * a * c;
+
+            let result = "";
+            if (delta > 0) {
+                let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                result = `Phương trình có 2 nghiệm là:<br>x1 = ${x1.toFixed(2)}<br>x2 = ${x2.toFixed(2)}`;
+            } else if (delta === 0) {
+                let x = -b / (2 * a);
+                result = `Phương trình có nghiệm kép là:<br>x = ${x.toFixed(2)}`;
+            } else {
+                result = "Phương trình vô nghiệm";
             }
 
-            const age = currentYear - birthYear;
-            resultDiv.innerHTML = `Chào bạn ${name}! Tuổi của bạn là ${age}`;
+            // Hiển thị kết quả
+            document.getElementById('ketqua').innerHTML = result;
         }
     </script>
+</head>
+<body>
+    <h1>CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH BẬC 2</h1>
+    <form>
+        <label for="a">a = </label>
+        <input type="text" id="a" value="1"><br><br>
+        <label for="b">b = </label>
+        <input type="text" id="b" value="4"><br><br>
+        <label for="c">c = </label>
+        <input type="text" id="c" value="1"><br><br>
+        <button type="button" onclick="giaiPTBac2()">Giải</button>
+        <button type="reset">Xóa</button>
+    </form>
+    <br>
+    <div id="ketqua"></div>
 </body>
 </html>
