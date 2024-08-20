@@ -3,46 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JQ01</title>
-    <style>
-        #course-list {
-            margin-top: 10px;
-        }
-    </style>
+    <title>JQ02</title>
 </head>
 <body>
+    <h3>Tính số ngày giữa hai thời điểm</h3>
     <div>
-        <label for="course-name">Tên môn học:</label>
-        <input type="text" id="course-name">
-        <button id="add-course">Thêm môn học</button>
+        <label for="start-date">Từ ngày:</label>
+        <input type="date" id="start-date">
+        <br><br>
+        <label for="end-date">Đến ngày:</label>
+        <input type="date" id="end-date">
+        <br><br>
+        <button id="calculate">Tính số ngày</button>
+        <br><br>
+        <label for="days-difference">Số ngày là:</label>
+        <input type="text" id="days-difference" readonly>
     </div>
-
-    <ul id="course-list">
-        <li>Python</li>
-        <li>PHP</li>
-    </ul>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Hàm thêm môn học
-            function addCourse() {
-                var courseName = $('#course-name').val().trim();
-                if (courseName) {
-                    $('#course-list').append('<li>' + courseName + '</li>');
-                    $('#course-name').val('');
-                }
-            }
+            $('#calculate').click(function() {
+                var startDate = new Date($('#start-date').val());
+                var endDate = new Date($('#end-date').val());
 
-            // Sự kiện khi click nút "Thêm môn học"
-            $('#add-course').click(function() {
-                addCourse();
-            });
-
-            // Sự kiện khi nhấn phím Enter
-            $('#course-name').keypress(function(event) {
-                if (event.which == 13) { // 13 là mã phím Enter
-                    addCourse();
+                if (startDate && endDate && startDate <= endDate) {
+                    // Tính số ngày chênh lệch
+                    var timeDifference = endDate - startDate;
+                    var daysDifference = timeDifference / (1000 * 3600 * 24); // Chuyển đổi từ milliseconds sang ngày
+                    $('#days-difference').val(daysDifference);
+                } else {
+                    $('#days-difference').val('Ngày không hợp lệ');
                 }
             });
         });
